@@ -31,12 +31,12 @@ public class Main {
 
             System.out.println();
 
-            Bus man = new Bus("Man", "Lion's Coach", 2016, "Germany",
-                    "white", 138);
+            Bus man = new Bus("Man", "Lion's Coach", 2016, "Германия",
+                    "Белый", 138);
             Bus mercerdes = new Bus("Mercedes-Benz", "Travego RHD 15 RHD", 2018,
-                    "Germany", "blue", 150);
-            Bus scania = new Bus("Scania", "Touring 6X2", 2021, "Sweden",
-                    "black", 142);
+                    "Германия", "Синий", 150);
+            Bus scania = new Bus("Scania", "Touring 6X2", 2021, "Швеция",
+                    "Красный", 142);
 
             System.out.println(man);
             System.out.println(mercerdes);

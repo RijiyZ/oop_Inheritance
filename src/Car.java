@@ -40,7 +40,7 @@ public class Car extends Transport {
         if (bodyType == null || bodyType.isEmpty()) {
             this.bodyType = "Седан";
         } else {
-            this.bodyType = gearbox;
+            this.bodyType = bodyType;
         }
         if (registrationPlateNumber == null || registrationPlateNumber.isEmpty()) {
             this.registrationPlateNumber = "X000XX000";
@@ -134,13 +134,13 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Марка: " + getBrand() + ", " + "Модель: " + getModel() + ", " + "Год производства: " + getproductionYear() + ", " +
-                "Страна сборки: " + getproductionCountry() + ", " + "Цвет кузова: " + getcolor() + ", " +
-                String.format("Объем двигателя - %.1f l." , engineVolume) + "Коробка передач: " + gearbox + ", " +
-                "Тип кузова: " + bodyType + ", " + "Регистрационный номер: " + registrationPlateNumber + ", " +
-                "Количество мест: " + seatQuantity + ", " + (isWinterTyres() ? "Зимняя" : "Летняя") + " резина" + ", " +
-                (getKey().isKeylessAccess() ? "доступ без ключа" : "доступ с ключа") + ", " +
-                (getKey().isRemoteStartEngine() ? "Удаленный запуск двигателя." : "классический запуск двигателя.");
+        return "Марка: " + getBrand() +  "\nМодель: " + getModel() + "\nГод производства: " + getproductionYear() +
+                "\nСтрана сборки: " + getproductionCountry() + "\nЦвет кузова: " + getcolor() +
+                String.format("\nОбъем двигателя - %.1f l." , engineVolume) + "\nКоробка передач: " + gearbox +
+                "\nТип кузова: " + bodyType + "\nРегистрационный номер: " + registrationPlateNumber +
+                "\nКоличество мест: " + seatQuantity +  (isWinterTyres() ? "\nЗимняя" : "\nЛетняя") + " резина" +
+                (getKey().isKeylessAccess() ? "\nдоступ без ключа: " : "\nдоступ с ключа: ") +
+                (getKey().isRemoteStartEngine() ? "Удаленный запуск двигателя.\n" : "классический запуск двигателя.\n");
     }
 
     @Override
