@@ -1,3 +1,6 @@
+import Driver.DriverB;
+import Driver.DriverC;
+import Driver.DriverD;
 import Transport.Bus;
 import Transport.Car;
 import Transport.Transport;
@@ -10,12 +13,12 @@ public class Main {
         Car audi = new Car("Audi", "A8", 3.0);
         Car hyundai = new Car("Hyundai", "Avante", 1.6);
 
-        Truck gaz = new Truck("Gaz", "El", 2.0);
+        Truck nissan350z = new Truck("Nissan", "350Z", 2.0);
         Truck jac = new Truck("Jac", "Sunray", 2.5);
         Truck man = new Truck("Man", "TGS", 2.2);
         Truck foton = new Truck("Foton", "Auman", 2.3);
 
-        Bus citroen = new Bus("Citroen", "Jumper", 2.5);
+        Bus silvia = new Bus("Silvia", "S15 1000HP 2JZ", 2.5);
         Bus mercedes = new Bus("Mercedes-Benz", "Sprinter", 2.8);
         Bus liaz = new Bus("Лиаз", "4292", 2.6);
         Bus volvo = new Bus("Volvo", "7900", 2.2);
@@ -23,9 +26,12 @@ public class Main {
         drive(audi, true,5.3, 250);
         drive(liaz, false,10.8, 180);
 
-        Driver<Truck> tsar = new Driver<Truck>("Цареградцев", "C", 20);
-        tsar.driveTransport(foton);
-
+        DriverD<Bus> gocha = new DriverD<Bus>("Гоча", true, 12);
+        gocha.drive(silvia);
+        DriverB<Car> ivanD = new DriverB<Car>("Иван Дикарев", true, 2);
+        ivanD.drive(daewoo);
+        DriverC<Truck> tsar = new DriverC<Truck>("Цареградцев", true, 10);
+        tsar.drive(nissan350z);
 
     }
 
