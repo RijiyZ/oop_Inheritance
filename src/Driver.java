@@ -3,7 +3,7 @@ import Transport.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Driver<B extends Car, C extends Truck, D extends Bus> {
+public class Driver<T extends Transport> {
     private String name;
     private String driveLicense;
     int experience;
@@ -53,52 +53,27 @@ public class Driver<B extends Car, C extends Truck, D extends Bus> {
     }
 
     public void startMoving() {
-        System.out.println("Водитель " + name + " начинает движение");
+        System.out.println("Водитель " + name +" начинает движение");
     }
 
     public void stopMoving() {
-        System.out.println("Водитель " + name + " останавливается");
+        System.out.println("Водитель " + name +" останавливается");
     }
 
     public void refuelCar() {
-        System.out.println("Водитель " + name + " заправляется");
+        System.out.println("Водитель " + name +" заправляется");
     }
 
-    public void driveTransport(B transport) {
+    public void driveTransport(T transport) {
         if (driveLicense == "B") {
-            System.out.println("Водитель " + name + " управляет автомобилем " + transport.getBrand() +" " + transport.getModel() +" и будет участвовать в заезде");
+            System.out.println("Водитель " + name + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
+        } else if (driveLicense == "C") {
+            System.out.println("Водитель " + name + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
+        } else if (driveLicense == "D") {
+            System.out.println("Водитель " + name + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
         } else {
             System.out.println("Водитель " + name + " не может управлять данным авто");
         }
-    }
-
-    public void driveTransport(C transport) {
-        if (driveLicense == "C") {
-            System.out.println("Водитель " + name + " управляет автомобилем " + transport.getBrand() +" " + transport.getModel() +" и будет участвовать в заезде");
-        } else {
-            System.out.println("Водитель " + name + " не может управлять данным авто");
-        }
-    }
-
-    public void driveTransport(D transport) {
-        if (driveLicense == "D") {
-            System.out.println("Водитель " + name + " управляет автомобилем " + transport.getBrand() +" " + transport.getModel() +" и будет участвовать в заезде");
-        } else {
-            System.out.println("Водитель " + name + " не может управлять данным авто");
-        }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Driver<?, ?, ?> driver = (Driver<?, ?, ?>) o;
-        return experience == driver.experience && yearDriveLicense == driver.yearDriveLicense && Objects.equals(name, driver.name) && Objects.equals(driveLicense, driver.driveLicense);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, driveLicense, experience, yearDriveLicense);
     }
 
     @Override
@@ -106,6 +81,21 @@ public class Driver<B extends Car, C extends Truck, D extends Bus> {
         return "Driver{" +
                 "name='" + name + '\'' +
                 ", driveLicense='" + driveLicense + '\'' +
-                ", experience=" + experience + "}";
+                ", experience=" + experience +
+                ", yearDriveLicense=" + yearDriveLicense +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return experience == driver.experience && yearDriveLicense == driver.yearDriveLicense && Objects.equals(name, driver.name) && Objects.equals(driveLicense, driver.driveLicense);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, driveLicense, experience, yearDriveLicense);
     }
 }

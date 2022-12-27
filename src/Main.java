@@ -23,10 +23,9 @@ public class Main {
         drive(audi, true,5.3, 250);
         drive(liaz, false,10.8, 180);
 
-        Driver<Car, Truck, Bus> arkadiy = new Driver<Car, Truck, Bus>("Аркадий Цареградцев ", "B", 10);
-        Driver<Car,Truck,Bus> ivan = new Driver<Car, Truck, Bus>("Дикарев Иван", "D", 1);
-        arkadiy.driveTransport(daewoo);
-        ivan.driveTransport(citroen);
+        Driver<Truck> tsar = new Driver<Truck>("Цареградцев", "C", 20);
+        tsar.driveTransport(foton);
+
 
     }
 
