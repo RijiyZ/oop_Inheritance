@@ -6,4 +6,5 @@ public enum Capacity {
     MEDIUM,
     LARGE,
     EXTRA_LARGE
+
 }
