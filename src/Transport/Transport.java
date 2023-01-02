@@ -64,4 +64,5 @@ public abstract class Transport implements Competing {
     public String toString() {
         return "Марка " + brand + " Модель " + model + " Мощность двигателя " + engineVolume;
     }
+    public abstract void printType();
 }

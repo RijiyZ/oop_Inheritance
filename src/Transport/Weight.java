@@ -1,7 +1,21 @@
 package Transport;
 
 public enum Weight {
-    N1,
-    N2,
-    N3
+    N1(0D,3.5),
+    N2(3.5,12D),
+    N3(12D,null);
+    private final double from;
+    private final double to;
+
+    Weight(double from, double to) {
+        this.from = from;
+        this.to = to;
+    }
+
+    public double getFrom () {
+            return from;
+    }
+    public double getTo () {
+            return to;
+    }
 }
