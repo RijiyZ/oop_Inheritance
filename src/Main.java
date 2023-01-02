@@ -1,45 +1,46 @@
-import java.time.LocalDate;
+import Driver.DriverB;
+import Driver.DriverC;
+import Driver.DriverD;
+import Transport.Bus;
+import Transport.Car;
+import Transport.Transport;
+import Transport.Truck;
 
 public class Main {
-        private static final int CURRENT_MONTH = LocalDate.now().getMonthValue();
-        public static void main(String[] args) {
-            Car ladaGranta =new Car("Lada", "Granta", 2015, "Россия",
-                    "Желтый", 180, 1.7, "Mеханика", "Седан",
-                    "Н988Н193", 5, true, new Car.Key());
-            Car audiA8 = new Car("Audi", "A8 50L TDI quattro", 2020, "Германия",
-                    "Черный", 250, 3.0, "Aвтомат", "Седан",
-                    "Н989Н193", 4, true, new Car.Key(true,
-                    true));
-            Car bmwZ8 = new Car("BMW", "Z8", 2021, "Германия", "Черный",
-                    240, 3.0, "Mеханика", "Кабриолет", "Н990Н193",
-                    2, false, new Car.Key());
-            Car kiaSportage = new Car("Kia", "Sportage 4th generation", 2018,
-                    "Южная Корея", "Красный", 225, 2.4, "Aвтомат",
-                    "Кроссовер", "Н991Н193", 5, true,
-                    new Car.Key(true, true));
-            Car hyundaiAvante = new Car("Hyundai", "Avante", 2016, "Южная Корея",
-                    "Оранжевый", 196,  1.6, "Aвтомат", "Седан",
-                    "Н993Н193", 5, true, new Car.Key());
+    public static void main(String[] args) {
+        Car daewoo = new Car("Daewoo", "nexia", 1.5);
+        Car kia = new Car("Kia", "Sportage 4", 2.4);
+        Car audi = new Car("Audi", "A8", 3.0);
+        Car hyundai = new Car("Hyundai", "Avante", 1.6);
 
-            System.out.println(ladaGranta);
-            System.out.println(audiA8);
-            System.out.println(bmwZ8);
-            bmwZ8.changeTyres(CURRENT_MONTH);
-            System.out.println(bmwZ8);
-            System.out.println(kiaSportage);
-            System.out.println(hyundaiAvante);
+        Truck nissan350z = new Truck("Nissan", "350Z", 2.0);
+        Truck jac = new Truck("Jac", "Sunray", 2.5);
+        Truck man = new Truck("Man", "TGS", 2.2);
+        Truck foton = new Truck("Foton", "Auman", 2.3);
 
-            System.out.println();
+        Bus silvia = new Bus("Silvia", "S15 1000HP 2JZ", 2.5);
+        Bus mercedes = new Bus("Mercedes-Benz", "Sprinter", 2.8);
+        Bus liaz = new Bus("Лиаз", "4292", 2.6);
+        Bus volvo = new Bus("Volvo", "7900", 2.2);
 
-            Bus man = new Bus("Man", "Lion's Coach", 2016, "Германия",
-                    "Белый", 138);
-            Bus mercerdes = new Bus("Mercedes-Benz", "Travego RHD 15 RHD", 2018,
-                    "Германия", "Синий", 150);
-            Bus scania = new Bus("Scania", "Touring 6X2", 2021, "Швеция",
-                    "Красный", 142);
+        drive(audi, true,5.3, 250);
+        drive(liaz, false,10.8, 180);
 
-            System.out.println(man);
-            System.out.println(mercerdes);
-            System.out.println(scania);
-        }
+        DriverD<Bus> gocha = new DriverD<Bus>("Гоча", true, 12);
+        gocha.drive(silvia);
+        DriverB<Car> ivanD = new DriverB<Car>("Иван Дикарев", true, 2);
+        ivanD.drive(daewoo);
+        DriverC<Truck> tsar = new DriverC<Truck>("Цареградцев", true, 10);
+        tsar.drive(nissan350z);
+
+    }
+
+    public static void drive(Transport transport, boolean pitStop,double minutes, int speed) {
+        transport.startMoving();
+        transport.pitStop(pitStop);
+        transport.bestLapTime(minutes);
+        transport.maxSpeed(speed);
+        transport.endMoving();
+        System.out.println();
+    }
 }
