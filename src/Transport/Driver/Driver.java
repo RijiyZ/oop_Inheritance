@@ -1,4 +1,4 @@
-package Driver;
+package Transport.Driver;
 
 import java.util.Objects;
 
@@ -67,7 +67,7 @@ public abstract class Driver {
 
     @Override
     public String toString() {
-        return "Driver{" +
+        return "Transport.Driver{" +
                 "fullName='" + fullName + '\'' +
                 ", driversLicence=" + driversLicence +
                 ", drivingExperience=" + drivingExperience +
